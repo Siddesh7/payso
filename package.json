@@ -1,0 +1,14 @@
+{
+  "name": "my-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @my-monorepo/api dev & pnpm --filter @my-monorepo/example-app dev",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "nx": "^16.5.1"
+  }
+}
