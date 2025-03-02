@@ -1,0 +1,9 @@
+{
+  "name": "paymesol",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/paymesol",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project paymesol --web",
+  "targets": {}
+}

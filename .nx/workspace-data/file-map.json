@@ -1,0 +1,863 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.4.6",
+  "pathMappings": {
+    "sdk": [
+      "libs/sdk/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    },
+    {
+      "name": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "10702041053128801313"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "6596592090075996945"
+      },
+      {
+        "file": "eslint.config.js",
+        "hash": "2478217381773231556"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "14666292676744882690"
+      },
+      {
+        "file": "package.json",
+        "hash": "350390041096873397"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "14034758290625213977"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16128973487560164273"
+      }
+    ],
+    "projectFileMap": {
+      "paymesol": [
+        {
+          "file": "apps/paymesol/.next/BUILD_ID",
+          "hash": "17815471113592228686"
+        },
+        {
+          "file": "apps/paymesol/.next/app-build-manifest.json",
+          "hash": "4887462536592879397"
+        },
+        {
+          "file": "apps/paymesol/.next/app-path-routes-manifest.json",
+          "hash": "12246543111077143075"
+        },
+        {
+          "file": "apps/paymesol/.next/build-manifest.json",
+          "hash": "6596175836176567095"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/.tsbuildinfo",
+          "hash": "14198933508651223332"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/client-production/0.pack",
+          "hash": "162669863309341226"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/client-production/index.pack",
+          "hash": "2437932226827752965"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/edge-server-production/0.pack",
+          "hash": "11660940500592675580"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/edge-server-production/index.pack",
+          "hash": "1974099147683802793"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/server-production/0.pack",
+          "hash": "11532740641256739312"
+        },
+        {
+          "file": "apps/paymesol/.next/cache/webpack/server-production/index.pack",
+          "hash": "6133835369957628193"
+        },
+        {
+          "file": "apps/paymesol/.next/export-marker.json",
+          "hash": "11522155510268390742"
+        },
+        {
+          "file": "apps/paymesol/.next/images-manifest.json",
+          "hash": "7169629856718193401"
+        },
+        {
+          "file": "apps/paymesol/.next/next-minimal-server.js.nft.json",
+          "hash": "13627124177176553432"
+        },
+        {
+          "file": "apps/paymesol/.next/next-server.js.nft.json",
+          "hash": "15031852399814234002"
+        },
+        {
+          "file": "apps/paymesol/.next/package.json",
+          "hash": "11338307439248427064"
+        },
+        {
+          "file": "apps/paymesol/.next/prerender-manifest.js",
+          "hash": "4429673298724902322"
+        },
+        {
+          "file": "apps/paymesol/.next/prerender-manifest.json",
+          "hash": "9083559679874787743"
+        },
+        {
+          "file": "apps/paymesol/.next/react-loadable-manifest.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/paymesol/.next/required-server-files.json",
+          "hash": "1428792662616873075"
+        },
+        {
+          "file": "apps/paymesol/.next/routes-manifest.json",
+          "hash": "11865259465140689761"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app-paths-manifest.json",
+          "hash": "9264592005280533601"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found.html",
+          "hash": "14825020748165086233"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found.meta",
+          "hash": "14455188152624101585"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found.rsc",
+          "hash": "10896801490865867864"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found/page.js",
+          "hash": "9428092587228364389",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found/page.js.nft.json",
+          "hash": "16958896791744165328"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/_not-found/page_client-reference-manifest.js",
+          "hash": "16212151526228529503"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/api/hello.body",
+          "hash": "368059014246027513"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/api/hello.meta",
+          "hash": "3926655256966059444"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/api/hello/route.js",
+          "hash": "1606541288443581476",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/api/hello/route.js.nft.json",
+          "hash": "16393277904014741403"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/index.html",
+          "hash": "2869870058149840382"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/index.meta",
+          "hash": "12686615678755563355"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/index.rsc",
+          "hash": "7646822937817692358"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/page.js",
+          "hash": "8396038878945015470",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/page.js.nft.json",
+          "hash": "15149803367527245650"
+        },
+        {
+          "file": "apps/paymesol/.next/server/app/page_client-reference-manifest.js",
+          "hash": "18270087454429959185"
+        },
+        {
+          "file": "apps/paymesol/.next/server/chunks/526.js",
+          "hash": "17376957270038523002"
+        },
+        {
+          "file": "apps/paymesol/.next/server/chunks/877.js",
+          "hash": "8503802705684001779"
+        },
+        {
+          "file": "apps/paymesol/.next/server/chunks/93.js",
+          "hash": "18403062183986765050"
+        },
+        {
+          "file": "apps/paymesol/.next/server/chunks/font-manifest.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "apps/paymesol/.next/server/font-manifest.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "apps/paymesol/.next/server/functions-config-manifest.json",
+          "hash": "1596591690446218015"
+        },
+        {
+          "file": "apps/paymesol/.next/server/interception-route-rewrite-manifest.js",
+          "hash": "10135913824388381780"
+        },
+        {
+          "file": "apps/paymesol/.next/server/middleware-build-manifest.js",
+          "hash": "8000637744803437433"
+        },
+        {
+          "file": "apps/paymesol/.next/server/middleware-manifest.json",
+          "hash": "9889576824779923310"
+        },
+        {
+          "file": "apps/paymesol/.next/server/middleware-react-loadable-manifest.js",
+          "hash": "13961083300434990301"
+        },
+        {
+          "file": "apps/paymesol/.next/server/next-font-manifest.js",
+          "hash": "1232773246202868513"
+        },
+        {
+          "file": "apps/paymesol/.next/server/next-font-manifest.json",
+          "hash": "11891788324563068681"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages-manifest.json",
+          "hash": "14102123345430260574"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/404.html",
+          "hash": "14825020748165086233"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/500.html",
+          "hash": "7915564616003481496"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_app.js",
+          "hash": "9771878414929591540",
+          "deps": [
+            [
+              "npm:react",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_app.js.nft.json",
+          "hash": "4843359133089773527"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_document.js",
+          "hash": "3831904076835970333",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ],
+            [
+              "npm:react",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_document.js.nft.json",
+          "hash": "6541469345423963838"
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_error.js",
+          "hash": "2636269759686442963",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ],
+            [
+              "npm:react",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/server/pages/_error.js.nft.json",
+          "hash": "4270164668541041287"
+        },
+        {
+          "file": "apps/paymesol/.next/server/server-reference-manifest.js",
+          "hash": "1970720088978269137"
+        },
+        {
+          "file": "apps/paymesol/.next/server/server-reference-manifest.json",
+          "hash": "732587741061381795"
+        },
+        {
+          "file": "apps/paymesol/.next/server/webpack-runtime.js",
+          "hash": "17752544268493023714"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/645-0972a1936c4a2e43.js",
+          "hash": "542387183489448178"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/app/_not-found/page-474e4bcbffde1baa.js",
+          "hash": "7494176172324636094"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/app/layout-49b22d5ffb21383d.js",
+          "hash": "9439425209462701274"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/app/page-6096c6584e48f1ca.js",
+          "hash": "7956385457021208706"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/c388405b-5b286cacaee501f3.js",
+          "hash": "3061397088662253214"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/framework-bef83a85c94ff7de.js",
+          "hash": "16102261921426380410"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/main-5261d7bf29031f76.js",
+          "hash": "17561108704102335833"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/main-app-411c834bc6f27edc.js",
+          "hash": "9641635275383667450"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/pages/_app-eeb9c08f35e405ed.js",
+          "hash": "14458051850552169577"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/pages/_error-42765c2d7d6161b7.js",
+          "hash": "10133006597065386090"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
+          "hash": "1955602371502312040"
+        },
+        {
+          "file": "apps/paymesol/.next/static/chunks/webpack-e887ff023a8faa23.js",
+          "hash": "2454206521865955095"
+        },
+        {
+          "file": "apps/paymesol/.next/static/css/54c968e6566bfe05.css",
+          "hash": "2825698060638707570"
+        },
+        {
+          "file": "apps/paymesol/.next/static/i4pFBjUZLZFTTiUNut5Ox/_buildManifest.js",
+          "hash": "1600262123214173839"
+        },
+        {
+          "file": "apps/paymesol/.next/static/i4pFBjUZLZFTTiUNut5Ox/_ssgManifest.js",
+          "hash": "2285259522902979167"
+        },
+        {
+          "file": "apps/paymesol/.next/trace",
+          "hash": "6683371715178842627"
+        },
+        {
+          "file": "apps/paymesol/.next/types/app/api/hello/route.ts",
+          "hash": "4729619303965556214",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/types/app/layout.ts",
+          "hash": "14864593904917478752",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/types/app/page.ts",
+          "hash": "10844645113442547289",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/paymesol/.next/types/package.json",
+          "hash": "6094546126370684104"
+        },
+        {
+          "file": "apps/paymesol/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/paymesol/app/global.css",
+          "hash": "291024361394925992"
+        },
+        {
+          "file": "apps/paymesol/app/layout.tsx",
+          "hash": "8120384783310217832"
+        },
+        {
+          "file": "apps/paymesol/app/page.tsx",
+          "hash": "7486002849320991586"
+        },
+        {
+          "file": "apps/paymesol/eslint.config.js",
+          "hash": "16495160406286877276",
+          "deps": [
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@eslint/compat",
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/paymesol/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/paymesol/jest.config.ts",
+          "hash": "18397357941406474482"
+        },
+        {
+          "file": "apps/paymesol/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/paymesol/next.config.js",
+          "hash": "17252635002163063865",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/paymesol/postcss.config.js",
+          "hash": "2759402739052110475"
+        },
+        {
+          "file": "apps/paymesol/project.json",
+          "hash": "12260401324428378807"
+        },
+        {
+          "file": "apps/paymesol/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/paymesol/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/paymesol/specs/index.spec.tsx",
+          "hash": "11675860502091292728",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/paymesol/tailwind.config.js",
+          "hash": "13090734457927965885",
+          "deps": [
+            "npm:@nx/react"
+          ]
+        },
+        {
+          "file": "apps/paymesol/tsconfig.json",
+          "hash": "13648249090718301856"
+        },
+        {
+          "file": "apps/paymesol/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        }
+      ],
+      "api": [
+        {
+          "file": "apps/api/.env",
+          "hash": "10292689893934480202"
+        },
+        {
+          "file": "apps/api/.env.example",
+          "hash": "10292689893934480202"
+        },
+        {
+          "file": "apps/api/eslint.config.js",
+          "hash": "17472210594086834595"
+        },
+        {
+          "file": "apps/api/jest.config.ts",
+          "hash": "11236996806909307999"
+        },
+        {
+          "file": "apps/api/project.json",
+          "hash": "13050183496553081352"
+        },
+        {
+          "file": "apps/api/src/app/app.controller.spec.ts",
+          "hash": "2727664763654384995",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.controller.ts",
+          "hash": "4552329938751326480",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.module.ts",
+          "hash": "13519930699997199387",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.service.ts",
+          "hash": "16892833931858030153",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.controller.spec.ts",
+          "hash": "14239920491639202077",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.controller.ts",
+          "hash": "15831053999663505489",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.guard.ts",
+          "hash": "17229442907104055094",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.module.ts",
+          "hash": "9240707039116499807",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.service.spec.ts",
+          "hash": "5442871165268080463",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.service.ts",
+          "hash": "12538350568357146681",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/jupiter/jupiter.module.ts",
+          "hash": "15935028782276312050",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/jupiter/jupiter.service.spec.ts",
+          "hash": "4123300861548839046",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/jupiter/jupiter.service.ts",
+          "hash": "104393965125993345",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/jupiter/models/quote.model.ts",
+          "hash": "8206810778181398346"
+        },
+        {
+          "file": "apps/api/src/app/jupiter/models/token.model.ts",
+          "hash": "8522190280397870290"
+        },
+        {
+          "file": "apps/api/src/app/merchant/dto/create-merchant.dto.ts",
+          "hash": "509427499912811134",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/entities/merchant.entity.ts",
+          "hash": "5283393909141113279",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/merchant.controller.spec.ts",
+          "hash": "15675668924280737498",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/merchant.controller.ts",
+          "hash": "12368184843046521966",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/merchant.module.ts",
+          "hash": "7083866043536374343",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/merchant.service.spec.ts",
+          "hash": "2136972620502852668",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/merchant.service.ts",
+          "hash": "9563047372409402539",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:uuid",
+            "npm:@solana/web3.js"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/merchant/models/merchant.model.ts",
+          "hash": "7251120793592629031"
+        },
+        {
+          "file": "apps/api/src/app/payment/dto/create-payment.dto.ts",
+          "hash": "2453354281655253154",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/dto/execute-payment.dto.ts",
+          "hash": "2033945773976006460",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/entities/payment.entity.ts",
+          "hash": "2158960898285994200",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/models/payment.model.ts",
+          "hash": "10410321179496309247"
+        },
+        {
+          "file": "apps/api/src/app/payment/payment.controller.spec.ts",
+          "hash": "3945554862186751740",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/payment.controller.ts",
+          "hash": "7315487023366158156",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/payment.module.ts",
+          "hash": "7620640878538343715",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/payment.service.spec.ts",
+          "hash": "13199515356500546025",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/payment/payment.service.ts",
+          "hash": "13230922457041722826",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:@solana/web3.js",
+            "npm:@solana/spl-token"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/websocket/models/event.model.ts",
+          "hash": "2658296104363499447"
+        },
+        {
+          "file": "apps/api/src/app/websocket/payment/payment.gateway.spec.ts",
+          "hash": "5162477802252752803",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/websocket/payment/payment.gateway.ts",
+          "hash": "8610027885394790694",
+          "deps": [
+            "npm:@nestjs/websockets",
+            "npm:@nestjs/common",
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/websocket/websocket.module.ts",
+          "hash": "2261143111892036649",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/api/src/main.ts",
+          "hash": "10572315152358849335",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/api/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/api/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/api/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/api/webpack.config.js",
+          "hash": "3774360504015463941",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ]
+    }
+  }
+}

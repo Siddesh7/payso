@@ -1,11 +1,26 @@
-node_modules
-.next
-dist
-build
-.env
-.env.*
-!.env.example
+# Node Modules
+/node_modules
+**/node_modules/
+
+/libs
+/dist
+/tmp
+/out
+/build
+/.nx/cache
+
+
+# IDEs and editors
+.idea
+.project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# System Files
 .DS_Store
-coverage
-*.log
-.pnpm-store
+
+# Log files
+*.log 
