@@ -2,11 +2,11 @@
   "name": "@payso/sdk",
   "version": "1.0.0",
   "description": "SDK for payso.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/packages/sdk/index.js",
+  "types": "dist/packages/sdk/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch"
+    "build": "npx nx build sdk",
+    "dev": "npx nx build sdk --watch"
   },
   "keywords": [],
   "author": "",
