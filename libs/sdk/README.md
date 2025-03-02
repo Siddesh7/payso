@@ -13,13 +13,13 @@ The Payso SDK enables businesses to accept crypto payments on Solana with a simp
 ## Installation
 
 ```bash
-npm install @payso/sdk
+npm install payso-sdk
 ```
 
 ## Quick Start
 
 ```javascript
-import { PaymentWidget } from '@payso/sdk';
+import { PaymentWidget } from 'payso-sdk';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Connection } from '@solana/web3.js';
 
@@ -62,7 +62,7 @@ function PaymentButton() {
 The `PaysoClient` class is responsible for API communication with the Payso backend.
 
 ```javascript
-import { PaysoClient } from '@payso/sdk';
+import { PaysoClient } from 'payso-sdk';
 
 const client = new PaysoClient(
   'YOUR_API_KEY',
@@ -92,7 +92,7 @@ client.subscribeToPaymentEvents(payment.id, (event) => {
 The `PaymentWidget` class provides a complete payment UI that guides users through the payment process.
 
 ```javascript
-import { PaymentWidget } from '@payso/sdk';
+import { PaymentWidget } from 'payso-sdk';
 
 const widget = new PaymentWidget({
   apiKey: 'YOUR_API_KEY',
@@ -223,7 +223,7 @@ const widget = new PaymentWidget({
 For more control, you can use the PaysoClient directly:
 
 ```javascript
-import { PaysoClient, PaymentStatus } from '@payso/sdk';
+import { PaysoClient, PaymentStatus } from 'payso-sdk';
 
 const client = new PaysoClient('YOUR_API_KEY');
 
@@ -244,7 +244,7 @@ const tokens = await client.getPopularTokens();
 You can build your own UI and just use the PaysoClient for API calls:
 
 ```javascript
-import { PaysoClient } from '@payso/sdk';
+import { PaysoClient } from 'payso-sdk';
 
 const client = new PaysoClient('YOUR_API_KEY');
 

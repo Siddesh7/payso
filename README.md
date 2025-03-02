@@ -12,6 +12,8 @@ The Payso API provides the backend infrastructure for the Payso payment platform
 - Support multiple tokens via Jupiter swaps
 - Validate API keys and authenticate merchants
 
+A TypeScript SDK is available to simplify client integration. You can find it on npm at [payso-sdk](https://www.npmjs.com/package/payso-sdk).
+
 ## Project Structure
 
 This project is part of a NX monorepo workspace:

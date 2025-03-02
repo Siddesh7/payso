@@ -1,5 +1,5 @@
 {
-  "name": "sdk",
+  "name": "payso-sdk",
   "version": "0.0.1",
   "dependencies": {
     "@solana/spl-token": "^0.4.12",
@@ -10,6 +10,5 @@
   },
   "type": "commonjs",
   "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
-  "private": true
+  "typings": "./src/index.d.ts"
 }
