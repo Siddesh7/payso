@@ -1,8 +1,8 @@
 export enum PaymentStatus {
-  PENDING = "pending",
-  PROCESSING = "processing",
-  COMPLETED = "completed",
-  FAILED = "failed",
+  PENDING = 'pending',
+  PROCESSING = 'processing',
+  COMPLETED = 'completed',
+  FAILED = 'failed',
 }
 
 export interface Payment {
@@ -19,7 +19,14 @@ export interface Payment {
   createdAt: Date;
   updatedAt: Date;
 }
-
+export interface Merchant {
+  id: string;
+  name: string;
+  walletAddress: string;
+  apiKey: string;
+  createdAt: string;
+  updatedAt: string;
+}
 export interface Token {
   symbol: string;
   name: string;
@@ -29,12 +36,12 @@ export interface Token {
 }
 
 export enum PaymentEventType {
-  PAYMENT_CREATED = "payment_created",
-  PAYMENT_UPDATED = "payment_updated",
-  PAYMENT_COMPLETED = "payment_completed",
-  PAYMENT_FAILED = "payment_failed",
-  TRANSACTION_SUBMITTED = "transaction_submitted",
-  TRANSACTION_CONFIRMED = "transaction_confirmed",
+  PAYMENT_CREATED = 'payment_created',
+  PAYMENT_UPDATED = 'payment_updated',
+  PAYMENT_COMPLETED = 'payment_completed',
+  PAYMENT_FAILED = 'payment_failed',
+  TRANSACTION_SUBMITTED = 'transaction_submitted',
+  TRANSACTION_CONFIRMED = 'transaction_confirmed',
 }
 
 export interface PaymentEvent {

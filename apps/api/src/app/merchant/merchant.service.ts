@@ -10,19 +10,16 @@ import { PublicKey } from '@solana/web3.js';
 export class MerchantService {
   constructor(
     @InjectRepository(Merchant)
-    private merchantRepository: Repository<Merchant>,
+    private merchantRepository: Repository<Merchant>
   ) {}
 
   /**
    * Create a new merchant
    */
   async createMerchant(
-    createMerchantDto: CreateMerchantDto,
+    createMerchantDto: CreateMerchantDto
   ): Promise<Merchant> {
     try {
-      // Validate Solana wallet address
-
-      console.log((createMerchantDto.walletAddress))
       new PublicKey(createMerchantDto.walletAddress);
 
       const merchant = this.merchantRepository.create({
@@ -33,8 +30,7 @@ export class MerchantService {
 
       return this.merchantRepository.save(merchant);
     } catch (error) {
-      console.error("Wallet validation failed:", error.message); // 🔴 Debugging
-      throw new Error("Invalid wallet address");
+      throw new Error('Invalid wallet address');
     }
   }
 
@@ -50,7 +46,23 @@ export class MerchantService {
 
     return merchant;
   }
+  /**
+   * Get merchants by wallet address
+   */
+  async getMerchantsByWalletAddress(
+    walletAddress: string
+  ): Promise<Merchant[]> {
+    try {
+      // Find all merchants with the specified wallet address
+      const merchants = await this.merchantRepository.find({
+        where: { walletAddress },
+      });
 
+      return merchants;
+    } catch (error) {
+      throw new Error('Invalid wallet address');
+    }
+  }
   /**
    * Get merchant by API key
    */
@@ -63,7 +75,7 @@ export class MerchantService {
    */
   async updateWalletAddress(
     id: string,
-    walletAddress: string,
+    walletAddress: string
   ): Promise<Merchant> {
     try {
       // Validate Solana wallet address

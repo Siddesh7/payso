@@ -1,5 +1,5 @@
-import axios, { AxiosInstance } from "axios";
-import { io, Socket } from "socket.io-client";
+import axios, { AxiosInstance } from 'axios';
+import { io, Socket } from 'socket.io-client';
 import {
   CreatePaymentRequest,
   CreatePaymentResponse,
@@ -12,7 +12,8 @@ import {
   Payment,
   PaymentEvent,
   Token,
-} from "./models";
+  Merchant,
+} from './models';
 
 export class PaysoClient {
   private apiClient: AxiosInstance;
@@ -26,8 +27,8 @@ export class PaysoClient {
 
   constructor(
     apiKey: string,
-    apiUrl: string = "http://localhost:3000",
-    socketUrl: string = "http://localhost:3000"
+    apiUrl: string = 'http://localhost:3000',
+    socketUrl: string = 'http://localhost:3000'
   ) {
     this.apiKey = apiKey;
     this.apiUrl = apiUrl;
@@ -36,8 +37,8 @@ export class PaysoClient {
     this.apiClient = axios.create({
       baseURL: apiUrl,
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
       },
     });
 
@@ -69,7 +70,7 @@ export class PaysoClient {
 
     try {
       this.isValidatingApiKey = true;
-      const response = await this.apiClient.post("/auth/validate-key", {
+      const response = await this.apiClient.post('/auth/validate-key', {
         apiKey: this.apiKey,
       });
 
@@ -78,12 +79,12 @@ export class PaysoClient {
         this.apiKeyValidated = true;
         return true;
       } else {
-        throw new Error("Invalid API key");
+        throw new Error('Invalid API key');
       }
     } catch (error) {
-      console.error("Failed to validate API key:", error);
+      console.error('Failed to validate API key:', error);
       this.apiKeyValidated = false;
-      throw new Error("Failed to validate API key");
+      throw new Error('Failed to validate API key');
     } finally {
       this.isValidatingApiKey = false;
     }
@@ -95,37 +96,37 @@ export class PaysoClient {
   public connect(): void {
     if (!this.merchantId) {
       console.warn(
-        "[PaysoClient] Merchant ID not available. Make sure API key is valid."
+        '[PaysoClient] Merchant ID not available. Make sure API key is valid.'
       );
       return;
     }
 
     if (this.socket && this.socket.connected) {
-      console.log("[PaysoClient] Socket already connected");
+      console.log('[PaysoClient] Socket already connected');
       return;
     }
 
     console.log(`[PaysoClient] Connecting to WebSocket at ${this.socketUrl}`);
     this.socket = io(this.socketUrl);
 
-    this.socket.on("connect", () => {
-      console.log("[PaysoClient] Connected to WebSocket server");
+    this.socket.on('connect', () => {
+      console.log('[PaysoClient] Connected to WebSocket server');
 
       // Subscribe to merchant events
       if (this.socket) {
         console.log(
           `[PaysoClient] Subscribing to merchant events for ${this.merchantId}`
         );
-        this.socket.emit("subscribe_merchant", this.merchantId);
+        this.socket.emit('subscribe_merchant', this.merchantId);
       }
     });
 
-    this.socket.on("disconnect", () => {
-      console.log("[PaysoClient] Disconnected from WebSocket server");
+    this.socket.on('disconnect', () => {
+      console.log('[PaysoClient] Disconnected from WebSocket server');
     });
 
-    this.socket.on("connect_error", (error) => {
-      console.error("[PaysoClient] Socket connection error:", error);
+    this.socket.on('connect_error', (error) => {
+      console.error('[PaysoClient] Socket connection error:', error);
     });
   }
 
@@ -150,13 +151,13 @@ export class PaysoClient {
       this.connect();
     }
 
-    this.socket?.emit("subscribe_payment", paymentId);
+    this.socket?.emit('subscribe_payment', paymentId);
 
     // Remove any existing listeners to prevent duplicates
-    this.socket?.off("payment_event");
+    this.socket?.off('payment_event');
 
-    this.socket?.on("payment_event", (event: PaymentEvent) => {
-      console.log("[PaysoClient] Payment event received:", event);
+    this.socket?.on('payment_event', (event: PaymentEvent) => {
+      console.log('[PaysoClient] Payment event received:', event);
       if (event.paymentId === paymentId) {
         callback(event);
       }
@@ -174,10 +175,10 @@ export class PaysoClient {
     }
 
     // Remove any existing listeners to prevent duplicates
-    this.socket?.off("payment_event");
+    this.socket?.off('payment_event');
 
-    this.socket?.on("payment_event", (event: PaymentEvent) => {
-      console.log("[PaysoClient] Merchant event received:", event);
+    this.socket?.on('payment_event', (event: PaymentEvent) => {
+      console.log('[PaysoClient] Merchant event received:', event);
       if (event.merchantId === this.merchantId) {
         callback(event);
       }
@@ -196,13 +197,13 @@ export class PaysoClient {
         await this.validateApiKey();
       }
 
-      console.log("[PaysoClient] Creating payment:", request);
-      const response = await this.apiClient.post("/payments", request);
-      console.log("[PaysoClient] Payment created:", response.data);
+      console.log('[PaysoClient] Creating payment:', request);
+      const response = await this.apiClient.post('/payments', request);
+      console.log('[PaysoClient] Payment created:', response.data);
       return response.data;
     } catch (error) {
-      console.error("[PaysoClient] Failed to create payment:", error);
-      throw new Error("Failed to create payment");
+      console.error('[PaysoClient] Failed to create payment:', error);
+      throw new Error('Failed to create payment');
     }
   }
 
@@ -220,8 +221,8 @@ export class PaysoClient {
       console.log(`[PaysoClient] Payment retrieved:`, response.data);
       return response.data;
     } catch (error) {
-      console.error("[PaysoClient] Failed to get payment:", error);
-      throw new Error("Failed to get payment");
+      console.error('[PaysoClient] Failed to get payment:', error);
+      throw new Error('Failed to get payment');
     }
   }
 
@@ -236,7 +237,7 @@ export class PaysoClient {
 
       if (!this.merchantId) {
         throw new Error(
-          "Merchant ID not available. Make sure API key is valid."
+          'Merchant ID not available. Make sure API key is valid.'
         );
       }
 
@@ -249,8 +250,8 @@ export class PaysoClient {
       console.log(`[PaysoClient] Retrieved ${response.data.length} payments`);
       return response.data;
     } catch (error) {
-      console.error("[PaysoClient] Failed to get payments:", error);
-      throw new Error("Failed to get payments");
+      console.error('[PaysoClient] Failed to get payments:', error);
+      throw new Error('Failed to get payments');
     }
   }
 
@@ -277,8 +278,8 @@ export class PaysoClient {
       console.log(`[PaysoClient] Payment prepared:`, response.data);
       return response.data;
     } catch (error) {
-      console.error("[PaysoClient] Failed to prepare payment:", error);
-      throw new Error("Failed to prepare payment");
+      console.error('[PaysoClient] Failed to prepare payment:', error);
+      throw new Error('Failed to prepare payment');
     }
   }
 
@@ -302,7 +303,7 @@ export class PaysoClient {
       const payment = await this.getPayment(request.paymentId);
       console.log(`[PaysoClient] Current payment status: ${payment.status}`);
 
-      if (payment.status !== "pending") {
+      if (payment.status !== 'pending') {
         console.error(`[PaysoClient] Invalid payment state: ${payment.status}`);
         throw new Error(
           `Payment is no longer in pending state (current state: ${payment.status})`
@@ -317,8 +318,8 @@ export class PaysoClient {
       const executeApiClient = axios.create({
         baseURL: this.apiUrl,
         headers: {
-          "Content-Type": "application/json",
-          "x-api-key": this.apiKey,
+          'Content-Type': 'application/json',
+          'x-api-key': this.apiKey,
         },
         timeout: 20000, // 20 second timeout
       });
@@ -335,8 +336,8 @@ export class PaysoClient {
 
       // Check if it's a timeout error
       if (
-        error.code === "ECONNABORTED" ||
-        (error.message && error.message.includes("timeout"))
+        error.code === 'ECONNABORTED' ||
+        (error.message && error.message.includes('timeout'))
       ) {
         console.log(`[PaysoClient] Request timed out, checking payment status`);
 
@@ -344,7 +345,7 @@ export class PaysoClient {
           // If it's a timeout, check if the payment was actually processed
           const updatedPayment = await this.getPayment(request.paymentId);
 
-          if (updatedPayment.status === "processing") {
+          if (updatedPayment.status === 'processing') {
             console.log(
               `[PaysoClient] Payment is now in processing state despite timeout`
             );
@@ -367,12 +368,12 @@ export class PaysoClient {
           );
         }
 
-        throw new Error("Request timed out. Please try again.");
+        throw new Error('Request timed out. Please try again.');
       }
 
       // Extract and log the error details
       const errorMessage =
-        error?.response?.data?.message || error.message || "Unknown error";
+        error?.response?.data?.message || error.message || 'Unknown error';
       console.error(`[PaysoClient] Error details: ${errorMessage}`);
 
       throw new Error(`Failed to execute payment: ${errorMessage}`);
@@ -399,8 +400,8 @@ export class PaysoClient {
       const confirmApiClient = axios.create({
         baseURL: this.apiUrl,
         headers: {
-          "Content-Type": "application/json",
-          "x-api-key": this.apiKey,
+          'Content-Type': 'application/json',
+          'x-api-key': this.apiKey,
         },
         timeout: 15000, // 15 second timeout
       });
@@ -419,8 +420,8 @@ export class PaysoClient {
 
       // Check if it's a timeout error
       if (
-        error.code === "ECONNABORTED" ||
-        (error.message && error.message.includes("timeout"))
+        error.code === 'ECONNABORTED' ||
+        (error.message && error.message.includes('timeout'))
       ) {
         console.log(
           `[PaysoClient] Confirmation request timed out, checking payment status`
@@ -430,7 +431,7 @@ export class PaysoClient {
           // If it's a timeout, check if the payment was actually confirmed
           const updatedPayment = await this.getPayment(request.paymentId);
 
-          if (updatedPayment.status === "completed") {
+          if (updatedPayment.status === 'completed') {
             console.log(
               `[PaysoClient] Payment is now completed despite timeout`
             );
@@ -438,7 +439,7 @@ export class PaysoClient {
           }
 
           // If it's still in processing, update locally and return
-          if (updatedPayment.status === "processing") {
+          if (updatedPayment.status === 'processing') {
             console.log(
               `[PaysoClient] Payment still processing, manually updating state`
             );
@@ -446,7 +447,7 @@ export class PaysoClient {
             // Create a completed payment response
             const completedPayment: ConfirmPaymentResponse = {
               ...updatedPayment,
-              status: "completed" as any, // Cast to PaymentStatus
+              status: 'completed' as any, // Cast to PaymentStatus
               transactionSignature: request.transactionSignature,
             };
 
@@ -460,16 +461,35 @@ export class PaysoClient {
         }
 
         throw new Error(
-          "Confirmation request timed out. The transaction may still be processing."
+          'Confirmation request timed out. The transaction may still be processing.'
         );
       }
 
       const errorMessage =
-        error?.response?.data?.message || error.message || "Unknown error";
+        error?.response?.data?.message || error.message || 'Unknown error';
       throw new Error(`Failed to confirm payment: ${errorMessage}`);
     }
   }
+  /**
+   * Get all merchants
+   * Returns a list of all merchants from the /merchants endpoint
+   */
+  public async getMerchants(): Promise<Merchant[]> {
+    try {
+      // Make sure API key is validated first
+      if (!this.apiKeyValidated) {
+        await this.validateApiKey();
+      }
 
+      console.log('[PaysoClient] Getting merchants');
+      const response = await this.apiClient.get('/merchants');
+      console.log(`[PaysoClient] Retrieved ${response.data.length} merchants`);
+      return response.data;
+    } catch (error) {
+      console.error('[PaysoClient] Failed to get merchants:', error);
+      throw new Error('Failed to get merchants');
+    }
+  }
   /**
    * Get popular tokens
    */
@@ -480,13 +500,13 @@ export class PaysoClient {
       }
 
       console.log(`[PaysoClient] Getting popular tokens`);
-      const response = await this.apiClient.get("/payments/tokens/popular");
+      const response = await this.apiClient.get('/payments/tokens/popular');
       console.log(`[PaysoClient] Retrieved ${response.data.length} tokens`);
 
       return response.data;
     } catch (error) {
-      console.error("[PaysoClient] Failed to get popular tokens:", error);
-      throw new Error("Failed to get popular tokens");
+      console.error('[PaysoClient] Failed to get popular tokens:', error);
+      throw new Error('Failed to get popular tokens');
     }
   }
 }
